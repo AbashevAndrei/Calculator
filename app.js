@@ -1,9 +1,9 @@
-// document.addEventListener("DOMContentLoaded", () => { // Позволяет подключать файл JavaScript до построения DOM дерева
 const num1 = document.querySelector('#num1')
 const num2 = document.querySelector('#num2')
 const addBtn = document.querySelector('#add')
 const subBtn = document.querySelector('#sub')
 const multiplyBtn = document.querySelector('#multiply')
+const divideBtn = document.querySelector('#divide')
 const output = document.querySelector('#output')
 
 function getInputValues() {
@@ -37,6 +37,14 @@ function multiplyHandler() {
   displayResult(result)
 }
 
+function divideHandler() {
+  const values = getInputValues()
+
+  const result = values[0] / values[1]
+
+  displayResult(result)
+}
+
 function displayResult(result) {
   output.closest('.card').style.display = 'block'
   output.innerHTML = `Результат = ${result}`
@@ -45,9 +53,4 @@ function displayResult(result) {
 addBtn.addEventListener('click', addHandler)
 subBtn.addEventListener('click', subHandler)
 multiplyBtn.addEventListener('click', multiplyHandler)
-
-// setTimeout(() => {
-//   fetch('https://jsonplaceholder.typicode.com/todos/1')
-//     .then(response => response.json())
-//     .then(json => console.log(json))
-// }, 5000)
+divideBtn.addEventListener('click', divideHandler)
